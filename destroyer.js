@@ -1,64 +1,51 @@
 let todos = document.getElementById("todo_div");
-let parentRect = document.getElementById("game").getBoundingClientRect();
+let gameBox = document.getElementById("game");
 
-// Initial text positions
-let pos = [ [parentRect.left + 20, parentRect.top + 280], 
-            [parentRect.left + 20, parentRect.top + 200], 
-            [parentRect.left + 20, parentRect.top + 240], 
-            [parentRect.left + 20, parentRect.top + 120], 
-            [parentRect.left + 20, parentRect.top + 160]];
+// Relative Startpositionen innerhalb der gameBox
+let pos = [ 
+  [20, 240], 
+  [20, 180], 
+  [20, 120], 
+  [20, 60], 
+  [20, 10]
+];
 
-// Initial movement directions
-let dir = [ [2, 1],
-            [2, 2], 
-            [4, 1], 
-            [2, 0], 
-            [0, 1]];
+// Start-Geschwindigkeiten
+let dir = [ 
+  [2, 1],
+  [2, 2], 
+  [3, 1], 
+  [2, 1], 
+  [1, 2]
+];
 
-function moveElements()
-{
-    // Move text visually
-    let i = 0;
-    for (let elem of todos.children)
-    {
-        elem.style.left = pos[i][0] + "px";
-        elem.style.top = pos[i][1] + "px";
-        i++;
+function updateGame() {
+  let parentRect = gameBox.getBoundingClientRect();
+
+  for (let i = 0; i < todos.children.length; i++) {
+    let elem = todos.children[i];
+
+    // 1. Position aktualisieren
+    pos[i][0] += dir[i][0];
+    pos[i][1] += dir[i][1];
+
+    // 2. Transform
+    elem.style.transform = `translate3d(${pos[i][0]}px, ${pos[i][1]}px, 0)`;
+
+    // 3. Kollisionsprüfung am Rand der gameBox
+    let elemRect = elem.getBoundingClientRect();
+
+    if (elemRect.left <= parentRect.left || elemRect.right >= parentRect.right) {
+      dir[i][0] = -dir[i][0];
     }
 
-    // Update positions
-    i = 0;
-    for (let elem of todos.children)
-    {
-        pos[i][0] += dir[i][0];
-        pos[i][1] += dir[i][1];
-
-        elem.style.left = pos[i][0] + "px";
-        elem.style.top = pos[i][1] + "px";
-
-        let outsideBounds =
-           elem.getBoundingClientRect().left < parentRect.left ||
-           elem.getBoundingClientRect().right > parentRect.right ||
-           elem.getBoundingClientRect().top < parentRect.top ||
-           elem.getBoundingClientRect().bottom > parentRect.bottom;
-
-        // Randomize directions
-        if(Math.random() < 0.01 && !outsideBounds)
-        {
-            dir[i][0] = Math.random() * 4;
-            dir[i][1] = Math.random() * 4;
-        }
-
-        if(outsideBounds)
-        {
-            dir[i][0] = -dir[i][0];
-            dir[i][1] = -dir[i][1];
-        }
-        
-        i++;
+    if (elemRect.top <= parentRect.top || elemRect.bottom >= parentRect.bottom) {
+      dir[i][1] = -dir[i][1];
     }
+  }
 
+  requestAnimationFrame(updateGame);
 }
 
-setInterval(moveElements, 10);
-moveElements();
+// Animation starten
+requestAnimationFrame(updateGame);

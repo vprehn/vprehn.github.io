@@ -64,13 +64,20 @@ p {
 }
 
 .todo {
+  position: absolute;
+  top: 0;
+  left: 0;
   font-size: 2vw;
+  white-space: nowrap;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 #todo_1 {
   position: absolute;
   left: 100px;
   top: 40px;
+  display: block;
 }
 
 #todo_2 {
@@ -105,11 +112,14 @@ p {
 }
 
 #game {
+  position: relative; /* Wichtig als Referenzpunkt */
   padding: 1em;
   margin-top: 3em;
   border: 2px dashed var(--text);
   border-radius: 10px;
   height: 20em;
+  overflow: hidden;    /* Verhindert Repaint-Schlieren am Rand */
+  transform: translateZ(0); /* Eigene GPU-Ebene für Safari */
 }
 
 #ankunft {
