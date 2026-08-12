@@ -1,14 +1,14 @@
 .card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40vh;
 }
 
 .timer {
   display: flex;
   justify-content: center;
+  min-width: 50vw;
   border: 2px solid rgb(220,220,220);
   border-radius: 10px;
 }
@@ -16,3 +16,12 @@
 h1, p {
   font-family: "Helvetica Neue";
 }
+
+h1 {
+  font-size: 60px;
+}
+
+p {
+  font-size: 30px;
+}
+
