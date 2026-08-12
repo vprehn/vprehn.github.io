@@ -14,7 +14,7 @@ function frame()
     let minutes =   String((Math.floor((difference / MINUTE) % 60))).padStart(2, "0");
     let seconds =   String((Math.floor((difference / SECOND) % 60))).padStart(2, "0");
     
-    document.getElementById("1").textContent = "⏰ " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    document.getElementById("timer").innerHTML = "⏰ " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 }
 
 setInterval(frame, 1000);
