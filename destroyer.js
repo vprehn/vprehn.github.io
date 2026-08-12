@@ -1,13 +1,13 @@
 let todos = document.getElementById("todo_div");
-let gameBox = document.getElementById("game");
+let gameBox = document.getElementById("game_box");
 
 // Relative Startpositionen innerhalb der gameBox
 let pos = [ 
-  [20, 240], 
-  [20, 180], 
-  [20, 120], 
-  [20, 60], 
-  [20, 10]
+  [20, 10], 
+  [20, 30], 
+  [20, 50], 
+  [20, 70], 
+  [20, 90]
 ];
 
 // Start-Geschwindigkeiten

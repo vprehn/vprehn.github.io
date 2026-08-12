@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   --background: #121212;
   --text: white;
@@ -112,14 +116,20 @@ p {
 }
 
 #game {
+  box-sizing: border-box;
   position: relative; /* Wichtig als Referenzpunkt */
-  padding: 1em;
+  /* padding: 1em; */
+  display: flex;
+  flex-direction: column;
   margin-top: 3em;
   border: 2px dashed var(--text);
   border-radius: 10px;
   height: 20em;
-  overflow: hidden;    /* Verhindert Repaint-Schlieren am Rand */
   transform: translateZ(0); /* Eigene GPU-Ebene für Safari */
+}
+
+#game_text {
+  margin: 1em 1em 0 1em;
 }
 
 #ankunft {
@@ -171,4 +181,15 @@ input:checked + .slider {
 
 input:checked + .slider::before {
   transform: translateX(-22px);
+}
+
+#game_box {
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transform: translateZ(0);
 }
