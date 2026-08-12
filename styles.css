@@ -1,3 +1,18 @@
-div.eins {
-  background-color: red;
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: red; */
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgb(220,220,220);
+  border-radius: 10px;
+}
+
+h1, p {
+  font-family: "Helvetica Neue";
 }
