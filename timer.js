@@ -1,21 +1,21 @@
-const arrivalDate = new Date("2026-08-14T12:04:00"); /* Berlin = UTC+2 (eigentlich 17 Uhr) */ 
-setInterval(frame, 10);
+const arrivalDate = new Date("2026-08-14T14:04:00+02:00");
 
-function timeTill(target) {
-    let difference = new Date(target) - new Date();
-
-    let hours = Math.floor(difference / (1000 * 60 * 60));
-    let minutes = Math.floor((difference / (1000 * 60)) % 60);
-    let seconds = Math.floor((difference / 1000) % 60);
-
-    return { hours, minutes, seconds };
-}
+const SECOND = 1000;
+const MINUTE = SECOND * 60;
+const HOUR = MINUTE * 60;
+const DAY = HOUR * 24;
 
 function frame()
 {
-    let eta = timeTill(arrivalDate);
-    let hoursLeft = (eta.hours.toString().length > 1) ? eta.hours.toString() : "0".concat(eta.hours.toString());
-    let minutesLeft = (eta.minutes.toString().length > 1) ? eta.minutes.toString() : "0".concat(eta.minutes.toString());
-    let secondsLeft = (eta.seconds.toString().length > 1) ? eta.seconds.toString() : "0".concat(eta.seconds.toString());
-    document.getElementById("1").innerHTML = hoursLeft.concat("h ", minutesLeft, "m ", secondsLeft, "s");
+    let difference = arrivalDate - Date.now();
+    
+    let days =      String((Math.floor(difference / DAY))).padStart(2, "0");
+    let hours =     String((Math.floor((difference / HOUR) % 24))).padStart(2, "0");
+    let minutes =   String((Math.floor((difference / MINUTE) % 60))).padStart(2, "0");
+    let seconds =   String((Math.floor((difference / SECOND) % 60))).padStart(2, "0");
+    
+    document.getElementById("timer").innerHTML = "⏰ " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 }
+
+setInterval(frame, 1000);
+frame();
