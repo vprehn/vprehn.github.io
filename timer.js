@@ -17,5 +17,5 @@ function frame()
     let hoursLeft = (eta.hours.toString().length > 1) ? eta.hours.toString() : "0".concat(eta.hours.toString());
     let minutesLeft = (eta.minutes.toString().length > 1) ? eta.minutes.toString() : "0".concat(eta.minutes.toString());
     let secondsLeft = (eta.seconds.toString().length > 1) ? eta.seconds.toString() : "0".concat(eta.seconds.toString());
-    document.getElementById("1").innerHTML = hoursLeft.concat(":", minutesLeft, ":", secondsLeft);
+    document.getElementById("1").innerHTML = hoursLeft.concat("h, ", minutesLeft, "m, ", secondsLeft, "s");
 }
