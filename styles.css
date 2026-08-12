@@ -60,6 +60,36 @@ p {
   font-size: 2vw;
 }
 
+#todo_1 {
+  position: absolute;
+  left: 100px;
+  top: 40px;
+}
+
+#todo_2 {
+  position: absolute;
+  left: 100px;
+  top: 60px;
+}
+
+#todo_3 {
+  position: absolute;
+  left: 100px;
+  top: 80px;
+}
+
+#todo_4 {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+}
+
+#todo_5 {
+  position: absolute;
+  left: 100px;
+  top: 120px;
+}
+
 .game_desc {
   margin-top: 0.5em;
   font-size: 1em;
