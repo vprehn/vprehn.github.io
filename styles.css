@@ -19,6 +19,7 @@ h1, h2, p {
 
 h1 {
   font-size: 5vw;
+  margin-bottom: 0;
 }
 
 h2 {
@@ -47,4 +48,14 @@ p {
   border: 2px dashed black;
   border-radius: 10px;
   height: 20em;
+}
+
+.ankunft {
+  font-size: 1.5em;
+}
+
+.ankunft_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

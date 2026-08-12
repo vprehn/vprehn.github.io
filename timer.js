@@ -1,4 +1,4 @@
-const arrivalDate = new Date("2026-08-14T15:00:00"); /* Berlin = UTC+2 (eigentlich 17 Uhr) */ 
+const arrivalDate = new Date("2026-08-14T12:04:00"); /* Berlin = UTC+2 (eigentlich 17 Uhr) */ 
 setInterval(frame, 10);
 
 function timeTill(target) {
@@ -17,5 +17,5 @@ function frame()
     let hoursLeft = (eta.hours.toString().length > 1) ? eta.hours.toString() : "0".concat(eta.hours.toString());
     let minutesLeft = (eta.minutes.toString().length > 1) ? eta.minutes.toString() : "0".concat(eta.minutes.toString());
     let secondsLeft = (eta.seconds.toString().length > 1) ? eta.seconds.toString() : "0".concat(eta.seconds.toString());
-    document.getElementById("1").innerHTML = hoursLeft.concat("h ", minutesLeft, "m ", secondsLeft, "s");
+    document.getElementById("1").innerHTML = "⏰ " + hoursLeft.concat("h ", minutesLeft, "m ", secondsLeft, "s");
 }
