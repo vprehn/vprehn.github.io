@@ -39,6 +39,11 @@ h1, h2, p {
 }
 #timer {
   font-weight: 700;
+  margin: 0.7em;
+}
+
+#ankunft {
+  margin: 0.5em;
 }
 
 h1 {
