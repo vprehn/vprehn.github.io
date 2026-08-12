@@ -11,11 +11,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  
+  <label class="switch">
+    <input type="checkbox" id="darkmode">
+    <span class="slider"></span>
+  </label>
+  
   <div class="card">
     <div class="elements">
       <div class="ankunft_info">
         <h1>Ankunft bei Traumprinz</h1>
-        <p class="ankunft">Ankunft am Fr., 14.08., um 14:04 Uhr</p>
+        <p id="ankunft"> Fr. 14.08. 14:04 Uhr</p>
       </div>
       <div class="timer">
         <p id="timer">00h 00m 00s</p>
@@ -23,7 +29,7 @@
     </div>
   </div>
   <script src="timer.js"></script>
-
+  
   <div class="game">
     <h2>🔫 Zerstöre die To Dos!</h2>
     <p class="game_desc">Klicke auf die herumfliegenden To Dos, um sie ein für alle mal ins Nirvana zu schicken!</p>
@@ -36,7 +42,8 @@
       <p class="todo" id="todo_5">Auf Test vorbereiten</p>
     </div>
   </div>
-
+  
   <script src="destroyer.js"></script>
+  <script src="darkmode.js"></script>
 </body>
 </html>
