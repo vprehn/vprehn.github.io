@@ -124,7 +124,7 @@ p {
   margin-top: 3em;
   border: 2px dashed var(--text);
   border-radius: 10px;
-  height: 20em;
+  height: 30em;
   transform: translateZ(0); /* Eigene GPU-Ebene für Safari */
 }
 
