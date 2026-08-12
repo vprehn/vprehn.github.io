@@ -1,4 +1,4 @@
-const arrivalDate = new Date("2026-08-14T15:00:00"); /* Berlin = UTC+2 (eigentlich 17 Uhr) */ 
+const arrivalDate = new Date("2026-08-14T12:04:00"); /* Berlin = UTC+2 (eigentlich 17 Uhr) */ 
 setInterval(frame, 10);
 
 function timeTill(target) {
